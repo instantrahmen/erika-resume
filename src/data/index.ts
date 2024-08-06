@@ -43,10 +43,10 @@ export const info = {
       body: `
 Hi, I'm Erika! I'm a front-end web developer with 6+ years of professional experience in full-stack development with a strong focus on the front-end.  
 <br />
-I am have experience and am comfortable working in React, Svelte, Vue, and TypeScript as well as multiple back-end technologies such as Node/Express, Laravel, and Ruby on Rails. Development is my passion and I'm always striving to learn more and stay up-to-date in the constantly shifting web development world.  
+I have experience and am comfortable working in React, Svelte, Vue, and TypeScript as well as multiple back-end technologies such as Node/Express, Laravel, and Ruby on Rails. Development is my passion and I'm always striving to learn more and stay up-to-date in the constantly shifting web development world.  
 <br/> 
 
-I've worked with multiple companies to modernize legacy codebases and helped build and many web apps of all sizes.
+I've worked with multiple companies to modernize legacy codebases and helped build many web apps of all sizes.
       `,
     },
     skills: {
