@@ -1,7 +1,7 @@
 <script lang="ts">
   import ModeSwitcher from '$lib/components/ModeSwitcher.svelte';
   import '../app.css';
-  import { ModeWatcher } from 'mode-watcher';
+  import { ModeWatcher, setMode, mode } from 'mode-watcher';
   import { Download, Github, Menu, ExternalLinkIcon } from 'lucide-svelte';
 
   // svelte animation stuff
@@ -11,6 +11,7 @@
   import { elasticIn, elasticOut, cubicOut, cubicIn } from 'svelte/easing';
   import { cn } from '$lib/utils/shadcn';
   import Badge from '$ui/badge/badge.svelte';
+  import { onMount } from 'svelte';
   let { children } = $props();
 
   let sidebarActive = $state(false);
@@ -29,7 +30,7 @@
   };
 </script>
 
-<ModeWatcher />
+<ModeWatcher defaultMode="light" />
 
 <aside class="fixed right-0 top-0 z-50 m-4 lg:m-0 print:hidden">
   <Button
