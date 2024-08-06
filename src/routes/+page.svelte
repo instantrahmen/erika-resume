@@ -72,7 +72,7 @@
             >
               {#each info.sections.skills.items as skill}
                 <div
-                  class="col-span-1 flex w-full min-w-fit items-center rounded-lg border border-primary/50 bg-background/60 px-2 py-1 text-xs font-medium tracking-wide text-muted-foreground shadow-sm shadow-purple-950/20 backdrop-blur-lg"
+                  class="col-span-1 flex w-full min-w-fit items-center justify-center rounded-lg border border-primary/50 bg-background/60 px-2 py-1 text-center text-xs font-medium tracking-wide text-muted-foreground shadow-sm shadow-purple-950/20 backdrop-blur-lg"
                 >
                   {skill.name}
                 </div>

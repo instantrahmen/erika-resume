@@ -58,7 +58,7 @@ I've worked with multiple companies to modernize legacy codebases and helped bui
         { name: 'Svelte' },
         { name: 'Vue' },
         { name: 'Node.js' },
-        { name: 'Tailwind CSS' },
+        { name: 'Tailwind' },
         { name: 'CSS' },
         { name: 'Ionic' },
         { name: 'Capacitor' },
