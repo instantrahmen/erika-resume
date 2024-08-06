@@ -17,11 +17,11 @@
     )}
   >
     <div
-      class="@container grid grid-cols-1 gap-x-0 gap-y-6 sm:grid-cols-3 sm:gap-x-6 print:gap-x-8"
+      class="grid grid-cols-1 gap-x-0 gap-y-6 @container sm:grid-cols-3 sm:gap-x-6 print:gap-x-8"
     >
       <div
         class={cn(
-          '@md:p-8 col-span-1 rounded-lg border border-primary/50  p-6 shadow-lg backdrop-blur-lg  ',
+          'col-span-1 rounded-lg border border-primary/50 p-6  shadow-lg backdrop-blur-lg @md:p-8  ',
           'print:max-h-[98vh]  print:rounded-none print:bg-none print:p-8 print:shadow-none',
           'print:border-y-0 print:border-l-0 print:border-r',
         )}
@@ -57,6 +57,7 @@
                     >
                       {text[i] || href}
                     </svelte:element>{i < hrefs.length - 1 ? ', ' : ''}
+                    <span class="sr-only">{link.label}</span>
                   {/each}
                 </span>
               </div>
@@ -68,7 +69,7 @@
           <section id="skills" class="@container">
             <h2 class="text-lg font-light">{info.sections.skills.title}</h2>
             <div
-              class="@[150px]:grid-cols-[repeat(2,_minmax(85px,1fr))] @[350px]:grid-cols-3 @[500px]:grid-cols-5 mt-2 grid grid-cols-1 gap-2"
+              class="mt-2 grid grid-cols-1 gap-2 @[150px]:grid-cols-[repeat(2,_minmax(85px,1fr))] @[350px]:grid-cols-3 @[500px]:grid-cols-5"
             >
               {#each info.sections.skills.items as skill}
                 <div
