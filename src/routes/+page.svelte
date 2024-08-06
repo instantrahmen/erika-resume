@@ -5,21 +5,28 @@
   import { parse } from 'marked';
 </script>
 
-<div class="m-0 flex min-h-screen flex-col items-center justify-center p-0 print:items-start">
+<svelte:head>
+  <title>{info.name} - {info.tagline}</title>
+</svelte:head>
+
+<div class="m-0 flex min-h-screen flex-col items-center justify-start p-0 print:items-start">
   <div
     class={cn(
       `w-full max-w-screen-lg rounded-lg bg-background/50 p-2 shadow-lg shadow-purple-950/20 backdrop-blur-lg sm:p-6`,
       'print:m-0 print:p-6 print:shadow-none',
     )}
   >
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+    <div
+      class="@container grid grid-cols-1 gap-x-0 gap-y-6 sm:grid-cols-3 sm:gap-x-6 print:gap-x-8"
+    >
       <div
         class={cn(
-          'col-span-1 rounded-lg bg-white/50 p-6 shadow-lg backdrop-blur-lg sm:p-8',
-          'print:max-h-[98vh]',
+          '@md:p-8 col-span-1 rounded-lg border border-primary/50  p-6 shadow-lg backdrop-blur-lg  ',
+          'print:max-h-[98vh]  print:rounded-none print:bg-none print:p-8 print:shadow-none',
+          'print:border-y-0 print:border-l-0 print:border-r',
         )}
       >
-        <div class="flex flex-col items-center">
+        <header class="flex flex-col items-center">
           <img
             src={info.image}
             alt={info.name}
@@ -29,17 +36,16 @@
           />
           <h1 class="mt-4 text-2xl font-light tracking-wide">{info.name}</h1>
           <p class="tracking-wide text-muted-foreground">{info.tagline}</p>
-        </div>
+        </header>
         {@render separator()}
-        <div class="space-y-4">
-          <div>
-            <h2 class="text-lg font-light">Contact</h2>
+        <div class="my-4">
+          <section class="flex flex-col gap-2" id="contact-info">
             {#each info.links as link}
               {@const el = link.noLink ? 'span' : 'a'}
               {@const hrefs = link.href.split(',').map((h) => h.trim())}
               {@const text = link.text?.split(',').map((h) => h.trim()) || []}
 
-              <div class="mt-2 grid grid-cols-[auto,1fr] items-center gap-2">
+              <div class="0 grid grid-cols-[auto,1fr] items-center gap-2">
                 <svelte:component this={link.icon} class="h-5 w-5 text-muted-foreground" />
                 <span class="text-xs text-muted-foreground">
                   {#each hrefs as href, i}
@@ -55,39 +61,42 @@
                 </span>
               </div>
             {/each}
-          </div>
+          </section>
+
           {@render separator()}
 
-          <div>
+          <section id="skills" class="@container">
             <h2 class="text-lg font-light">{info.sections.skills.title}</h2>
-            <div class="mt-2 grid grid-cols-[repeat(2,_minmax(85px,1fr))] gap-2">
+            <div
+              class="@[150px]:grid-cols-[repeat(2,_minmax(85px,1fr))] @[350px]:grid-cols-3 @[500px]:grid-cols-5 mt-2 grid grid-cols-1 gap-2"
+            >
               {#each info.sections.skills.items as skill}
                 <div
-                  class="col-span-1 flex w-full min-w-fit items-center rounded-lg border border-primary/50 bg-white/60 px-2 py-1 text-xs font-medium tracking-wide text-muted-foreground shadow-sm shadow-purple-950/20 backdrop-blur-lg"
+                  class="col-span-1 flex w-full min-w-fit items-center rounded-lg border border-primary/50 bg-background/60 px-2 py-1 text-xs font-medium tracking-wide text-muted-foreground shadow-sm shadow-purple-950/20 backdrop-blur-lg"
                 >
                   {skill.name}
                 </div>
               {/each}
             </div>
-          </div>
+          </section>
         </div>
       </div>
-      <div class="col-span-2 space-y-6 sm:p-0">
-        <div>
+      <div id="" class="col-span-2 space-y-6 sm:p-0">
+        <section id="about">
           <h2 class="text-2xl font-light">{info.sections.aboutMe.title}</h2>
           <p class="mt-2 text-muted-foreground">
             {@html parse(info.sections.aboutMe.body)}
           </p>
-        </div>
+        </section>
         {@render separator()}
-        <div>
+        <section id="experience">
           <h2 class="text-2xl font-light">{info.sections.work.title}</h2>
           <div class="mt-4 space-y-4">
             {#each info.sections.work.items as work}
               <div>
                 <h3 class="text-lg font-semibold">{work.title}</h3>
                 <p class="text-muted-foreground">{work.company}</p>
-                <p class="text-muted-foreground">{work.date}</p>
+                <p class="text-xs text-muted-foreground">{work.date}</p>
                 <ul class="mt-2 list-disc pl-6 text-muted-foreground">
                   {#each work.items as item}
                     <li>{item}</li>
@@ -96,7 +105,7 @@
               </div>
             {/each}
           </div>
-        </div>
+        </section>
       </div>
     </div>
   </div>

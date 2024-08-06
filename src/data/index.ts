@@ -1,8 +1,7 @@
 import { Globe, Github, MailIcon, LinkedinIcon, PhoneIcon } from 'lucide-svelte';
-
+import image from '$lib/assets/erika-photo.jpeg';
 export const info = {
-  image:
-    'https://media.licdn.com/dms/image/D4D03AQHlyJsW6adVSw/profile-displayphoto-shrink_800_800/0/1713907165485?e=1728518400&v=beta&t=ta4a0ktfvT25xcb2jIzNwAOonHpC16j-Qv_zr-8NVBs',
+  image,
   name: 'Erika Cudd',
   tagline: 'Front-end Developer',
   links: [

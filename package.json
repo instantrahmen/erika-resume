@@ -43,9 +43,11 @@
 		"lucide-svelte": "^0.424.0",
 		"marked": "^13.0.3",
 		"mode-watcher": "^0.4.1",
+		"puppeteer": "^22.15.0",
 		"svelte-sonner": "^0.3.27",
 		"tailwind-merge": "^2.4.0",
 		"tailwind-variants": "^0.2.1",
+		"url2pdf3": "^3.2.5",
 		"vaul-svelte": "^0.3.2"
 	}
 }
